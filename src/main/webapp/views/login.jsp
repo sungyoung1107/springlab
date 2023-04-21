@@ -3,22 +3,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600&family=Nanum+Myeongjo:wght@800&display=swap"
       rel="stylesheet">
 <script>
-    let login_form = {
-        init: function () {
-            $("#login_btn").click(function () {
-                login_form.send(); // this.send() 안됨! 유의
-            });
-        },
-        // 서버로 보내기
-        send: function () {
-            $("#login_form").attr({
-                'action': '/loginimpl',
-                'method': 'post'
-            });
-            $("#login_form").submit();
-        }
-    };
-
     // 화면 로딩
     $(function () {
         login_form.init();
@@ -35,13 +19,13 @@
                 <br><br><br>
                 <form class="form-horizontal" id="login_form" action="">
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="id">아이디:</label>
+                        <label class="control-label col-sm-2" for="id">아이디</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="id" placeholder="Enter id" name="id">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="pwd">패스워드:</label>
+                        <label class="control-label col-sm-2" for="pwd">패스워드</label>
                         <div class="col-sm-10">
                             <input type="password" class="form-control" id="pwd" placeholder="Enter password"
                                    name="pwd">

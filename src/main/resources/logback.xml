@@ -22,7 +22,8 @@
         </rollingPolicy>
     </appender>
 
-    <root level="ERROR"> <!-- 추가함 : ERROR 인 경우만 화면에 출력된다 -->
+<!--    <root level="ERROR"> &lt;!&ndash; 추가함 : ERROR 인 경우만 화면에 출력된다 &ndash;&gt;-->
+    <root level="INFO"> <!-- 추가함 : ERROR 인 경우만 화면에 출력된다 -->
         <appender-ref ref="STDOUT" />
     </root>
 

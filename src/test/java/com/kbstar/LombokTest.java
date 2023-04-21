@@ -1,6 +1,6 @@
 package com.kbstar;
 
-import com.kbstar.dto.CustDTO;
+import com.kbstar.dto.Cust;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +16,7 @@ public class LombokTest {
     void contextLoad() {
 
 //        System.out.println("i는 "+ i); // 절대 쓰지 말자
-        CustDTO cust = new CustDTO("id01", "pwd01", "이말숙");
+        Cust cust = new Cust("id01", "pwd01", "이말숙");
         logger.info(cust.toString());
     }
 }
