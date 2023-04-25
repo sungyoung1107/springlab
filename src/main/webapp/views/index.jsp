@@ -17,6 +17,24 @@
     <script src="/js/index0421.js"></script> <!-- /js 처럼 꼭 / 앞에 써야 한다!!!!! -->
     <!-- 카카오 지도 -->
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fedd7ae53186e30e0b2f11f102dd9180"></script>
+    <!-- https://www.highcharts.com/demo/spline-symbols -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <!-- 3D charts -->
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <!-- donut chart -->
+
+    <!-- bubble chart -->
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <!-- distribution of seats -->
+    <script src="https://code.highcharts.com/modules/item-series.js"></script>
+    <!-- dynamic chart -->
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+
+
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
         .navbar {
