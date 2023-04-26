@@ -75,10 +75,10 @@
 <div class="col-sm-8 text-left">
     <div class="container" id="map02">
         <h2>map02</h2>
+        <button type="button" id = "s_btn" class="btn btn-primary">Seoul</button>
+        <button type="button" id = "b_btn" class="btn btn-primary">Busan</button>
+        <button type="button" id = "j_btn" class="btn btn-primary">Jeju</button>
+        <div id = "map"></div>
     </div>
-    <button type="button" id = "s_btn" class="btn btn-primary">Seoul</button>
-    <button type="button" id = "b_btn" class="btn btn-primary">Busan</button>
-    <button type="button" id = "j_btn" class="btn btn-primary">Jeju</button>
-    <div id = "map"></div>
 </div>
 <%--</html>--%>

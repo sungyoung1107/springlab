@@ -90,7 +90,6 @@
             </label>
             <input class="ld-url-input" type="text" id="fetchURL"/>
         </div>
-
     </div>
 </div>
 <%--</html>--%>
