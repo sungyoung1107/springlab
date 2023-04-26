@@ -77,7 +77,7 @@
 <div class="col-sm-8 text-left">
     <div class="container" id="map01">
         <h2>map01</h2>
-        <div id=map">
+        <div id="map">
         </div>
     </div>
 </div>
