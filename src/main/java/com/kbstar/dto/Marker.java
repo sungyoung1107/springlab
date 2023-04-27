@@ -7,7 +7,6 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
-
 public class Marker {
     private int id;
     private String title;
@@ -15,5 +14,5 @@ public class Marker {
     private double lat;
     private double lng;
     private String img;
-    private String log;
+    private String loc;
 }

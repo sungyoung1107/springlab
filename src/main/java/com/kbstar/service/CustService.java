@@ -7,6 +7,7 @@ import com.kbstar.mapper.CustMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,10 +17,11 @@ public class CustService implements KBService<String, Cust> {
 
     @Autowired
 //    KBMapper mapper;
-    CustMapper mapper;
+    CustMapper mapper; // mapper를 활용해 db 연결
 
     @Override
     public void register(Cust cust) throws Exception {
+//        mapper.insert(cust);
         mapper.insert(cust);
         log.info("Register finished. Send mail......................" + cust.getId());
     }

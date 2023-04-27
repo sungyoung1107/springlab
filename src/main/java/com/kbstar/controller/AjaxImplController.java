@@ -79,7 +79,7 @@ public class AjaxImplController {
             jo.put("lat", obj.getLat());
             jo.put("lng", obj.getLng());
             jo.put("img", obj.getImg());
-            jo.put("log", obj.getLog());
+//            jo.put("log", obj.getLog());
             ja.add(jo);
         }
         return ja;
