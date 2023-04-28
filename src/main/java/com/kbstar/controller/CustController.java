@@ -19,8 +19,8 @@ import java.util.Random;
 @RequestMapping("/cust")
 public class CustController {
 //    Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
-    @Autowired
-    CustService service;
+    @Autowired // 주입 시키기
+    CustService custService;
     String dir = "cust/";
 
     // 127.0.0.1/cust
@@ -42,13 +42,13 @@ public class CustController {
     }
 
     @RequestMapping("/all")
-    public String all(Model model) {
+    public String all(Model model) throws Exception {
 
         List<Cust> list =null ;
         try {
-            list = service.get();
+            list = custService.get();
         } catch (Exception e){
-            e.printStackTrace();
+            throw new Exception("시스템 장애 : ER0001");
         }
 
         model.addAttribute("clist", list);

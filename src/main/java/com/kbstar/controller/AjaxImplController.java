@@ -26,7 +26,9 @@ import java.util.Random;
 public class AjaxImplController {
 
     @Autowired
-    MarkerService service;
+    MarkerService markerService;
+    @Autowired
+    CustService custService;
 
     @RequestMapping("/getservertime")
     public Object getservertime(){
@@ -35,9 +37,11 @@ public class AjaxImplController {
     }
 
     @RequestMapping("/checkid")
-    public int checkid(String id){
+    public int checkid(String id) throws Exception{
         int result = 0;
-        if(id.equals("qqqq")||id.equals("aaaa")||id.equals("ssss")){
+        Cust cust = null;
+        cust = custService.get(id);
+        if(cust!=null){
             result = 1;
         }
         return result;
@@ -71,9 +75,9 @@ public class AjaxImplController {
 
         List<Marker> list =null ;
         try {
-            list = service.getmarker(loc);
+            list = markerService.getLoc(loc);
         } catch (Exception e){
-            e.printStackTrace();
+            throw new Exception("시스템 장애");
         }
 
         log.info(list.toString());

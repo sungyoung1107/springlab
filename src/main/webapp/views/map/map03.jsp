@@ -55,9 +55,31 @@
             marker.setMap(map);
         },
         go            : function (lat, lng, loc) {
-            var moveLatLon = new kakao.maps.LatLng(lat, lng);
+
+
+            /********************* 강사님 추가 **************************/
+            var mapContainer = document.querySelector('#map03 > #map');
+            var mapOption = {
+                center: new kakao.maps.LatLng(lat, lng), // 지도의 중심좌표
+                level : 3 // 지도의 확대 레벨
+            };
+            var mapTypeControl = new kakao.maps.MapTypeControl();
+            // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+            // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+            map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+            // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+            var zoomControl = new kakao.maps.ZoomControl();
+            map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+            /**********************************************************/
+
+
+
+            // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+            map = new kakao.maps.Map(mapContainer, mapOption);
+
+            // var moveLatLon = new kakao.maps.LatLng(lat, lng);
             // 지도 중심을 이동 시킵니다
-            map.panTo(moveLatLon);
+            // map.panTo(moveLatLon);
             var markerPosition = new kakao.maps.LatLng(lat, lng);
             var marker = new kakao.maps.Marker({
                 position: markerPosition
@@ -69,7 +91,7 @@
         markers       : function (loc) {
             $.ajax({
                 url    : '/markers',
-                data   : {'loc': loc.toUpperCase()},
+                data   : {'loc': loc},
                 success: function (data) {
                     map03.displaymarkers(data);
                 }
@@ -78,7 +100,7 @@
         displaymarkers: function (positions) {
 
             // 모든 마커 삭제
-            map03.clearMarkers(map03.markers_arr);
+            // map03.clearMarkers(map03.markers_arr);
 
             var market = null;
             var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
@@ -94,7 +116,7 @@
                 });
 
                 // marker를 배열에 추가
-                map03.markers_arr.push(marker);
+                // map03.markers_arr.push(marker);
 
                 // infoWindow
                 var iwContent = '<h2>' + positions[i].title + '</h2>';
@@ -107,7 +129,7 @@
 
                 kakao.maps.event.addListener(marker, 'mouseover', mouseoverListener(marker, infowindow));
                 kakao.maps.event.addListener(marker, 'mouseout', mouseoutListener(marker, infowindow));
-                kakao.maps.event.addListener(marker, 'click', mouseclickListener(positions[i].target));
+                kakao.maps.event.addListener(marker, 'click', mouseclickListener(positions[i].id));
 
 
                 function mouseoverListener(marker, infowindow) {
@@ -122,9 +144,10 @@
                     };
                 }
 
+                // target: 상점의 id
                 function mouseclickListener(target) {
                     return function () {
-                        location.href = target;
+                        location.href = '/map/detail?id='+target;
                     };
                 }
             } // end for

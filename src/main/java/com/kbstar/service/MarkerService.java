@@ -50,7 +50,7 @@ public class MarkerService implements KBService<Integer, Marker> {
         return mapper.selectall();
     }
 
-    public List<Marker> getmarker(String loc) throws Exception {
-        return mapper.getmarker(loc);
+    public List<Marker> getLoc(String loc) throws Exception {
+        return mapper.getloc(loc);
     }
 }

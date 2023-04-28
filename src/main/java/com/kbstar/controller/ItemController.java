@@ -21,7 +21,7 @@ public class ItemController {
     Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     @Autowired
-    ItemService service;
+    ItemService itemService;
     String dir="item/";
 
     @RequestMapping("")
@@ -38,13 +38,13 @@ public class ItemController {
     }
 
     @RequestMapping("/all")
-    public String all(Model model){
+    public String all(Model model) throws Exception {
 
         List<Item> list =null ;
         try {
-            list = service.get();
+            list = itemService.get();
         } catch (Exception e){
-            e.printStackTrace();
+            throw new Exception("시스템 장애 : EX0002");
         }
 
         model.addAttribute("allitem", list);

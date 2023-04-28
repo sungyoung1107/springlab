@@ -15,21 +15,21 @@ let login_form = {
     }
 };
 
-let register_form = {
-    init: function () {
-        $("#register_btn").click(function () {
-            register_form.send(); // this.send() 안됨! 유의
-        });
-    },
-    // 서버로 보내기
-    send: function () {
-        $("#register_form").attr({
-            'action': '/registerimpl',
-            'method': 'post'
-        });
-        $("#register_form").submit();
-    }
-};
+// let register_form = {
+//     init: function () {
+//         $("#register_btn").click(function () {
+//             register_form.send(); // this.send() 안됨! 유의
+//         });
+//     },
+//     // 서버로 보내기
+//     send: function () {
+//         $("#register_form").attr({
+//             'action': '/registerimpl',
+//             'method': 'post'
+//         });
+//         $("#register_form").submit();
+//     }
+// };
 
 let jsp01 = {
     data: 0,

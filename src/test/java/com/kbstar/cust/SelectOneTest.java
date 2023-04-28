@@ -18,10 +18,13 @@ public class SelectOneTest {
 
     @Test
     void contextLoads(){
-        String id = "id01";
+        String id = "id77";
         Cust cust = null;
         try {
             cust = service.get(id);
+            log.info("------------------------");
+            log.info(cust.toString());
+            log.info("------------------------");
         } catch (Exception e) {
             log.info("에러 ..... ");
            e.printStackTrace();

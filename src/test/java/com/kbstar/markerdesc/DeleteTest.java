@@ -1,5 +1,7 @@
-package com.kbstar.marker;
+package com.kbstar.markerdesc;
 
+import com.kbstar.dto.MarkerDesc;
+import com.kbstar.service.MarkerDescService;
 import com.kbstar.service.MarkerService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -8,23 +10,22 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @Slf4j
 @SpringBootTest
-class GetmarkerTest {
+
+class DeleteTest {
+
     @Autowired
-    MarkerService service;
+    MarkerDescService service;
 
     @Test
     void contextLoads() {
-
         try{
-            service.getmarker("S");
-            service.getmarker("B");
-            service.getmarker("J");
-            log.info("Success");
+            service.remove(17);
+            log.info("success");
+            service.get();
         }catch(Exception e){
             log.info("Error");
             e.printStackTrace();
         }
-
     }
 
 }
