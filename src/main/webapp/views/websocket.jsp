@@ -50,7 +50,7 @@
         connect     : function () {
             var sid = this.id;
             // 서버 소켓
-            var socket = new SockJS('http://127.0.0.1:8088/ws');
+            var socket = new SockJS('${adminserver}/ws');
             this.stompClient = Stomp.over(socket);
             // 클라이언트 파트
             this.stompClient.connect({}, function (frame) {

@@ -37,8 +37,8 @@
             <maxHistory>30</maxHistory>
         </rollingPolicy>
     </appender>
-
-<!--    <root level="ERROR"> &lt;!&ndash; 추가함 : ERROR 인 경우만 화면에 출력된다 &ndash;&gt;-->
+<!-- 5mb가 넘거나 30시간인가? 지나면 압축 파일로 열거다 ->
+<!-    <root level="ERROR"> &lt;!&ndash; 추가함 : ERROR 인 경우만 화면에 출력된다 &ndash;&gt;-->
     <root level="INFO"> <!-- 추가함 : ERROR 인 경우만 화면에 출력된다 -->
         <appender-ref ref="STDOUT" />
     </root>
