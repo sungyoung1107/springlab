@@ -210,7 +210,7 @@
             document.body.appendChild(scrollBtn); // body 밑에 append
             scrollBtn.classList.add("show");
             scrollBtn.addEventListener("click", function(){
-                location.href='/login'; // 버튼 클릭시 이동
+                location.href='/chatbot'; // 버튼 클릭시 이동
             });
             const scrollBtn2 = document.createElement("button");
             scrollBtn2.innerHTML = "1:1";
@@ -218,7 +218,7 @@
             document.body.appendChild(scrollBtn2);
             scrollBtn2.classList.add("show");
             scrollBtn2.addEventListener("click", function(){
-                location.href='/login';
+                location.href='/callcenter';
             });
         }
     };

@@ -79,6 +79,28 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/chatbot")
+    public String chatbot(Model model, HttpSession session){
+        // 로그인을 안한 경우 로그인 화면으로
+        if(session.getAttribute("logincust")==null){
+            return "redirect:/login";
+        }
+        model.addAttribute("adminserver", adminserver);
+        model.addAttribute("center", "chatbot");
+        return "index";
+    }
+
+    @RequestMapping("/callcenter")
+    public String callcenter(Model model, HttpSession session){
+        if(session.getAttribute("logincust")==null){
+            return "redirect:/login";
+        }
+
+        model.addAttribute("adminserver", adminserver);
+        model.addAttribute("center", "callcenter");
+        return "index";
+    }
+
     @RequestMapping("/custinfo")
     public String custinfo(Model model, String id) throws Exception {
         Cust cust = null;
