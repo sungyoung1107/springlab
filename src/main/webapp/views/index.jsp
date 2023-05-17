@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
-<!-- JSTL,.. IF µÓ -->
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<!-- JSTL,.. IF Îì± -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- ≈Î»≠,≥Ø¬• -->
+<!-- ÌÜµÌôî,ÎÇ†Ïßú -->
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!-- ¥Ÿ±πæÓ -->
+<!-- Îã§Íµ≠Ïñ¥ -->
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <!DOCTYPE html>
@@ -27,7 +27,7 @@
     <script src="https://code.highcharts.com/modules/cylinder.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
 
-    <!-- ¿•º“ƒœ -->
+    <!-- ÏõπÏÜåÏºì -->
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 
@@ -83,7 +83,7 @@
                 <li class="active"><a href="/">Home</a></li>
                 <li><a href="/cust">Cust</a></li>
                 <li><a href="/item">Item</a></li>
-                <%--                //∑Œ±◊¿Œ¿ª «— ∞ÊøÏ∏∏ ∫∏¿Ãµµ∑œ--%>
+                <%--                //Î°úÍ∑∏Ïù∏ÏùÑ Ìïú Í≤ΩÏö∞Îßå Î≥¥Ïù¥ÎèÑÎ°ù--%>
                 <c:if test="${logincust!=null}">
                     <li><a href="/jsp">JSP</a></li>
                     <li><a href="/ajax">AJAX</a></li>
@@ -205,12 +205,12 @@
     let chatbtn = {
         init:function(){
             const scrollBtn = document.createElement("button");
-            scrollBtn.innerHTML = "chatbot"; // πˆ∆∞ text
-            scrollBtn.setAttribute("id", "scroll-btn"); // πˆ∆∞ ∞¥√ºø° id ∫Œø©
-            document.body.appendChild(scrollBtn); // body πÿø° append
+            scrollBtn.innerHTML = "chatbot"; // Î≤ÑÌäº text
+            scrollBtn.setAttribute("id", "scroll-btn"); // Î≤ÑÌäº Í∞ùÏ≤¥Ïóê id Î∂ÄÏó¨
+            document.body.appendChild(scrollBtn); // body Î∞ëÏóê append
             scrollBtn.classList.add("show");
             scrollBtn.addEventListener("click", function(){
-                location.href='/chatbot'; // πˆ∆∞ ≈¨∏ØΩ√ ¿Ãµø
+                location.href='/chatbot'; // Î≤ÑÌäº ÌÅ¥Î¶≠Ïãú Ïù¥Îèô
             });
             const scrollBtn2 = document.createElement("button");
             scrollBtn2.innerHTML = "1:1";
@@ -219,7 +219,7 @@
             scrollBtn2.classList.add("show");
             scrollBtn2.addEventListener("click", function(){
                 location.href='/callcenter';
-            });
+            });pon
         }
     };
 
