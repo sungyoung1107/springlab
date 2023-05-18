@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kbstar.mapper.ChartMapper">
+
+    <select id="getCategoryTotal" resultType="chart">
+        <![CDATA[
+            SELECT  p.category_id AS categoryID, UPPER(s.user_gender) AS gender,  SUM(cart_quantity) AS total
+            FROM cart c, shopuser s, product p
+            WHERE c.user_id = s.user_id AND c.product_id = p.product_id
+            GROUP BY UPPER(s.user_gender), p.category_id
+            ORDER BY 1
+        ]]>
+    </select>
+
+</mapper>

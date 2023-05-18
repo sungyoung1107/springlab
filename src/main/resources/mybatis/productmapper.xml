@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kbstar.mapper.ProductMapper">
+
+    <select id="search" parameterType="productSearch" resultType="product">
+        SELECT * FROM product
+        <where>
+            <if test="startdate != null and !startdate.equals('') ">
+                product_regdate &gt;= TO_DATE(#{startdate},'YYYY-MM-DD')
+            </if>
+            <if test="enddate != null and !enddate.equals('')">
+                AND   product_regdate &lt;= TO_DATE(#{enddate},'YYYY-MM-DD')+0.9999
+            </if>
+            <if test="product_name != null and !product_name.equals('') ">
+                AND product_name LIKE '%'||#{product_name}||'%'
+            </if>
+            <if test="product_price != null and !product_price.equals('') ">
+                AND product_price &gt;= #{product_price}
+            </if>
+        </where>
+    </select>
+
+    <select id="select" parameterType="Integer" resultType="product">
+        SELECT * FROM product WHERE product_id=#{product_id}
+    </select>
+
+    <select id="selectall" resultType="product">
+        SELECT * FROM product ORDER BY product_id DESC
+    </select>
+
+    <insert id="insert" parameterType="product">
+        INSERT INTO product VALUES (product_seq.NextVAL, #{product_name}, #{product_price}, SYSDATE, #{product_imgname}, #{category_id}, #{category_sub_id})
+    </insert>
+
+    <update id="update" parameterType="product">
+        UPDATE product SET product_name=#{product_name}, product_price=#{product_price}, product_imgname=#{product_imgname}, category_id=#{category_id} WHERE product_id=#{product_id}
+    </update>
+
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM product WHERE product_id=#{product_id}
+    </delete>
+    <!-- 동일순서 미부여-->
+    <select id="selectpopularitem" resultType="product">
+        select t.cart_date, t.product_id, t.product_name, t.cart_quantity, ROW_NUMBER()over (partition by t.cart_date order by t.cart_quantity desc) as rank
+        from (select EXTRACT(YEAR FROM c.cart_date)||LPAD(EXTRACT(MONTH FROM c.cart_date), 2, '0')||LPAD(EXTRACT(DAY FROM c.cart_date), 2, '0') AS cart_date, c.product_id, p.product_name, sum(c.cart_quantity) as cart_quantity
+              from cart c left join product p
+                                    on c.product_id = p.product_id
+              group by EXTRACT(YEAR FROM c.cart_date)||LPAD(EXTRACT(MONTH FROM c.cart_date), 2, '0')||LPAD(EXTRACT(DAY FROM c.cart_date), 2, '0'), c.product_id, p.product_name ) t
+
+        where t.cart_date = EXTRACT(YEAR FROM sysdate)||LPAD(EXTRACT(MONTH FROM sysdate), 2, '0')||LPAD(EXTRACT(DAY FROM sysdate), 2, '0')
+    </select>
+
+</mapper>
